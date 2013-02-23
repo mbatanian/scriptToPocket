@@ -1,5 +1,7 @@
 *.py[cod]
 
+accessKey.data
+
 # C extensions
 *.so
 

@@ -1,4 +1,4 @@
 scriptToPocket
 ==============
 
-add to pocket form a command line script
+add to pocket from a command line script
