@@ -1,6 +1,7 @@
 *.py[cod]
 
 accessKey.data
+config.py
 
 # C extensions
 *.so

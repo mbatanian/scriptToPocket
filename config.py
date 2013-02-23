@@ -1,3 +1,3 @@
 
 def getConsumerKey():
-	return '<CONSUMER_KEY>'
+	raise NotImplementedError('Please enter your consumer key.')
