@@ -3,7 +3,7 @@
 import urllib, urllib2
 import config
 
-redirect_uri = 'https://github.com/mbatanian/bookmarkRead'
+redirect_uri = 'https://github.com/mbatanian/scriptToPocket'
 CONSUMER_KEY = config.getConsumerKey()
 
 def getRequestToken():
