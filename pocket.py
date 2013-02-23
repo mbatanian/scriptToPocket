@@ -14,8 +14,17 @@ def add(url):
 	jparams = json.dumps(params)
 	req = urllib2.Request(addUrl, jparams)
 	req.add_header('Content-Type', 'application/json')
-	response = urllib2.urlopen(req)
-	
+	try: 
+		response = urllib2.urlopen(req)
+	except urllib2.HTTPError, e:
+		if e.code == 400:
+			print 'Error saving'
+			print 'Please ensure you used the fully qualified url'
+			print ' (i.e. https://www.google.com instead of www.google.com'
+			return
+		else:
+			raise
+
 	fresp = json.loads(response.read())
 	if fresp['status'] == 1:
 		print 'Successfully added ' + url + ' to pocket.'
