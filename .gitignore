@@ -3,6 +3,9 @@
 accessKey.data
 config.py
 
+hideConfig.sh
+unhideConfig.sh
+
 # C extensions
 *.so
 
