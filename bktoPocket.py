@@ -40,11 +40,15 @@ def getItem(folder):
 	items = sourceFolder['children']
 
 	while True:
-		if len(items) == 0:
+		validItems = []
+		for x in items:
+			if (x['type'] == 'url'):
+				validItems.append(x)
+		if len(validItems) == 0:
 			print 'No items found in folder ' + folder
 			exit(0)
-		id = random.randint(0, len(items)-1)
-		article = items[id]
+		id = random.randint(0, len(validItems)-1)
+		article = validItems[id]
 		# don't return folders for now
 		if article['type'] == 'url':
 			return article
