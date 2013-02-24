@@ -40,6 +40,9 @@ def getItem(folder):
 	items = sourceFolder['children']
 
 	while True:
+		if len(items) == 0:
+			print 'No items found in folder ' + folder
+			exit(0)
 		id = random.randint(0, len(items)-1)
 		article = items[id]
 		# don't return folders for now
