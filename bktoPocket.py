@@ -13,12 +13,30 @@ import pocket, config
 # [0]: First item in the bookmark_bar
 # children: children of that item ('it's a folder)
 # ... and so on
-def getItem():
+def traverse(root, folder):
+	for x in root['children']:
+		if (x['name'] == folder) and (x['type'] == 'folder'):
+			return x
+		elif x['type'] == 'folder':
+			p = traverse(x, folder)
+			if p != 'Not found':
+				return p
+	return 'Not found'
 
+
+def findFolder(folder):
 	bkfile = open(config.getBookmarkFileLocation(), 'r')
 	bks = json.loads(bkfile.read())
+	return traverse(bks['roots']['bookmark_bar'], folder)
 
-	sourceFolder = bks['roots']['bookmark_bar']['children'][0]['children'][0]
+
+def getItem(folder):
+
+	sourceFolder = findFolder(folder)
+	if sourceFolder == 'Not found':
+		print 'Could not find folder ' + folder
+		exit(0)
+
 	items = sourceFolder['children']
 
 	while True:
@@ -28,7 +46,7 @@ def getItem():
 		if article['type'] == 'url':
 			return article
 
-toSave = getItem()
+toSave = getItem(config.getBookmarkFolder())
 
 url = toSave['url']
 name = toSave['name']
