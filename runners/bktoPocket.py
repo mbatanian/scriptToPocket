@@ -3,12 +3,11 @@
 import json, random
 import pocket
 
-
 def getBookmarkFileLocation():
-	raise NotImplementedError('Enter the location of the bookmarks file on the file system')
+	raise NotImplementedError('Enter the location of the bookmarks file in the file system')
 
 def getBookmarkFolder():
-	raise NotImplementedError('Enter the name of the folder you wish to search for')
+	raise NotImplementedError('Enter the folder you wish to search in')
 
 # Grab a file from a folder in the Chrome Bookmarks, save it to pocket
 
@@ -65,3 +64,4 @@ def addItems():
 	url = toSave['url']
 	pocket.add(url)
 
+addItems()
