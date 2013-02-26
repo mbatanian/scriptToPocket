@@ -1,7 +1,14 @@
 #!/usr/bin/python
 
 import json, random
-import pocket, config
+import pocket
+
+
+def getBookmarkFileLocation():
+	raise NotImplementedError('Enter the location of the bookmarks file on the file system')
+
+def getBookmarkFolder():
+	raise NotImplementedError('Enter the name of the folder you wish to search for')
 
 # Grab a file from a folder in the Chrome Bookmarks, save it to pocket
 
@@ -25,7 +32,7 @@ def traverse(root, folder):
 
 
 def findFolder(folder):
-	bkfile = open(config.getBookmarkFileLocation(), 'r')
+	bkfile = open(getBookmarkFileLocation(), 'r')
 	bks = json.loads(bkfile.read())
 	return traverse(bks['roots']['bookmark_bar'], folder)
 
@@ -53,10 +60,8 @@ def getItem(folder):
 		if article['type'] == 'url':
 			return article
 
-toSave = getItem(config.getBookmarkFolder())
+def addItems():
+	toSave = getItem(getBookmarkFolder())
+	url = toSave['url']
+	pocket.add(url)
 
-url = toSave['url']
-name = toSave['name']
-
-print 'Saving ' + name + ' to pocket'
-pocket.add(url)
