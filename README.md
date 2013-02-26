@@ -3,6 +3,6 @@ scriptToPocket
 
 add to pocket from a command line script
 
-NOTE: to use this script, you'll need to register an application with Pocket 
+NOTE: to use this script, you'll need to register an application with [Pocket] 
 (http://getpocket.com/developer/apps/new) 
-and place your consumer key in [config.py](https://github.com/mbatanian/scriptToPocket/blob/master/config.py)
+and place your consumer key in [config.py](https://github.com/mbatanian/scriptToPocket/blob/master/config.py).
