@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
 import sys
-import auth, pocket
+import pocket
 
 if len(sys.argv) != 2:
 	print 'Invalid # of arguments'
