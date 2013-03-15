@@ -16,6 +16,7 @@ def getCurrentIssueURL():
 	return re.search(ciMatchString, resp).groups()[0]
 
 def addItems():
+
 	url = getCurrentIssueURL()
 	req = urllib2.Request(url)
 	response = urllib2.urlopen(req)
@@ -25,3 +26,5 @@ def addItems():
 	for x in set(re.findall(matchString, resp)):
 		url = x.split('"')[1] + '?single=1'
 		pocket.add(url)
+
+addItems()
