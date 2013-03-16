@@ -3,7 +3,7 @@
 import urllib, urllib2, json
 import auth
 
-def add(url):
+def add(url, tags = []):
 	
 	tokens = auth.getAuthToken()
 
@@ -11,6 +11,10 @@ def add(url):
 	params = {'access_token': tokens['accessKey'],
 				'consumer_key': tokens['consumer_key'],
 				'url': url}
+
+	if len(tags) > 0:
+		params['tags'] = ','.join(tags)
+
 	jparams = json.dumps(params)
 	req = urllib2.Request(addUrl, jparams)
 	req.add_header('Content-Type', 'application/json')
