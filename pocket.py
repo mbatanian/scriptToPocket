@@ -24,7 +24,7 @@ def add(url, tags = []):
 		if e.code == 400:
 			print 'Error saving'
 			print 'Please ensure you used the fully qualified url'
-			print ' (i.e. https://www.google.com instead of www.google.com'
+			print ' (i.e. https://www.google.com instead of www.google.com)'
 			return
 		else:
 			raise
